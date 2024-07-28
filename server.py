@@ -1,3 +1,5 @@
+import random
+
 from fastapi import FastAPI, HTTPException
 import json
 import os
@@ -24,5 +26,5 @@ async def search(keyword: str):
         if keyword.lower() in (username or user_first_name or user_last_name or '').lower():
             matching_users.append(user)
 
-    return matching_users
+    return matching_users[0:10]
 
